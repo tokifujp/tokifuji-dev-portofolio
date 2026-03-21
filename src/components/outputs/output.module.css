@@ -1,0 +1,114 @@
+.block {
+  padding: 8px 0 12px;
+  border-left: 2px solid var(--border);
+  padding-left: 16px;
+  margin: 4px 0;
+}
+
+.header {
+  color: var(--accent);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header::before {
+  content: '◈';
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 4px;
+  opacity: 0;
+  animation: slideIn 0.2s ease forwards;
+}
+
+.label {
+  color: var(--text-sub);
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.value {
+  color: var(--text);
+}
+
+.value a {
+  color: var(--accent);
+}
+
+.divLine {
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: 8px 0;
+  opacity: 0;
+  animation: slideIn 0.2s ease forwards;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-sub);
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 4px;
+  margin-bottom: 2px;
+}
+
+.price {
+  color: var(--warn);
+}
+
+.note {
+  color: var(--text-sub);
+  font-size: 12px;
+  white-space: pre-line;
+  opacity: 0;
+  animation: slideIn 0.2s ease forwards;
+  line-height: 1.8;
+}
+
+.cmdRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 4px;
+  opacity: 0;
+  animation: slideIn 0.2s ease forwards;
+}
+
+.cmdName {
+  color: var(--accent);
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
+.cmdDesc {
+  color: var(--text-sub);
+}
+
+.workTitle {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.workYear {
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+.multiLine {
+  white-space: pre-line;
+  line-height: 1.7;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}

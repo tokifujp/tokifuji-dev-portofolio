@@ -1,0 +1,33 @@
+.hints {
+  display: none;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  flex-shrink: 0;
+}
+
+.chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.chip:active {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+/* Show only on touch/mobile */
+@media (hover: none) and (pointer: coarse) {
+  .hints {
+    display: flex;
+  }
+}

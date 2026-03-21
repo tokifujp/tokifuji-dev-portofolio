@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@400;500&display=swap');
+
+:root {
+  --bg:          #0a0c10;
+  --bg-secondary:#0f1117;
+  --surface:     #161b22;
+  --border:      #21262d;
+  --text:        #c9d1d9;
+  --text-sub:    #6e7681;
+  --text-dim:    #3d444d;
+  --accent:      #00e5a0;
+  --accent-dim:  #00a37a;
+  --warn:        #ffb020;
+  --error:       #ff4d6a;
+  --prompt:      #58a6ff;
+  --font-mono:   'IBM Plex Mono', 'Courier New', monospace;
+  --font-sans:   'IBM Plex Sans JP', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#__next,
+main {
+  height: 100%;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-sub);
+}

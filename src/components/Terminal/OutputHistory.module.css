@@ -1,0 +1,49 @@
+.history {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 4px;
+  min-height: 0;
+}
+
+.entry {
+  margin-bottom: 4px;
+}
+
+.echo {
+  color: var(--text-sub);
+}
+
+.echo::before {
+  content: '$ ';
+  color: var(--accent);
+}
+
+.errorLine {
+  color: var(--error);
+}
+
+.errorLine::before {
+  content: '✗ ';
+}
+
+.systemLine {
+  color: var(--text-sub);
+}
+
+.banner {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  line-height: 1.2;
+  color: var(--accent);
+  white-space: pre;
+  overflow-x: auto;
+  margin: 4px 0 8px;
+  opacity: 0.7;
+}
+
+.sentinel {
+  height: 1px;
+  flex-shrink: 0;
+}

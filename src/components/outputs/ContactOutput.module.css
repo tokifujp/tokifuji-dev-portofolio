@@ -1,0 +1,76 @@
+.stepBlock {
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeUp 0.2s ease forwards;
+}
+
+.question {
+  color: var(--text-sub);
+  margin-bottom: 4px;
+}
+
+.answerLine {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  padding-left: 4px;
+}
+
+.placeholder {
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.arrow {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 2px;
+}
+
+.answer {
+  color: var(--text);
+}
+
+.status {
+  color: var(--text-sub);
+  margin-top: 4px;
+  opacity: 0;
+  animation: fadeUp 0.2s ease forwards;
+}
+
+.success {
+  color: var(--accent);
+  margin-top: 4px;
+  opacity: 0;
+  animation: fadeUp 0.2s ease forwards;
+}
+
+.errorMsg {
+  color: var(--error);
+  margin-top: 4px;
+  opacity: 0;
+  animation: fadeUp 0.2s ease forwards;
+}
+
+.agreeContext {
+  color: var(--text-sub);
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+.hint {
+  opacity: 0.6;
+  color: var(--text-dim);
+}
+
+.cancelled {
+  color: var(--warn);
+  margin-top: 4px;
+  opacity: 0;
+  animation: fadeUp 0.2s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

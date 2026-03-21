@@ -1,0 +1,68 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  padding: 6px 0 6px 0;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.prompt {
+  color: var(--accent);
+  margin-right: 8px;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.inputArea {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: inherit;
+  width: 100%;
+  caret-color: var(--accent);
+  position: relative;
+  z-index: 1;
+}
+
+/* Form mode prompt */
+.promptForm {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.promptFormPlaceholder {
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.promptFormArrow {
+  color: var(--accent);
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/* Ghost suggestion text */
+.suggestion {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  pointer-events: none;
+  white-space: pre;
+  font-family: var(--font-mono);
+  font-size: inherit;
+  z-index: 0;
+}
