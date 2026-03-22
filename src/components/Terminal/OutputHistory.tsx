@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import type { HistoryEntry, ContactFormState } from '@/types/terminal'
+import type { HistoryEntry, ContactFormState, WorkItem } from '@/types/terminal'
 import styles from './OutputHistory.module.css'
 import HelpOutput from '@/components/outputs/HelpOutput'
 import AboutOutput from '@/components/outputs/AboutOutput'
@@ -15,9 +15,10 @@ interface Props {
   history: HistoryEntry[]
   contactForm: ContactFormState | null
   bannerArt: string
+  works: WorkItem[]
 }
 
-function OutputBlock({ entry, contactForm, bannerArt }: { entry: HistoryEntry; contactForm: ContactFormState | null; bannerArt: string }) {
+function OutputBlock({ entry, contactForm, bannerArt, works }: { entry: HistoryEntry; contactForm: ContactFormState | null; bannerArt: string; works: WorkItem[] }) {
   if (entry.kind === 'banner') {
     return <pre className={styles.banner}>{bannerArt}</pre>
   }
@@ -45,7 +46,7 @@ function OutputBlock({ entry, contactForm, bannerArt }: { entry: HistoryEntry; c
       case '/help':     return <HelpOutput />
       case '/about':    return <AboutOutput />
       case '/services': return <ServicesOutput />
-      case '/works':    return <WorksOutput />
+      case '/works':    return <WorksOutput works={works} />
       case '/contact':  return null  // handled by contact-form entry
       case '/terms':    return <TermsOutput />
       case '/privacy':  return <PrivacyOutput />
@@ -55,7 +56,7 @@ function OutputBlock({ entry, contactForm, bannerArt }: { entry: HistoryEntry; c
   return null
 }
 
-export default function OutputHistory({ history, contactForm, bannerArt }: Props) {
+export default function OutputHistory({ history, contactForm, bannerArt, works }: Props) {
   const sentinelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -66,7 +67,7 @@ export default function OutputHistory({ history, contactForm, bannerArt }: Props
     <div className={styles.history}>
       {history.map(entry => (
         <div key={entry.id} className={styles.entry}>
-          <OutputBlock entry={entry} contactForm={contactForm} bannerArt={bannerArt} />
+          <OutputBlock entry={entry} contactForm={contactForm} bannerArt={bannerArt} works={works} />
         </div>
       ))}
       <div ref={sentinelRef} className={styles.sentinel} />

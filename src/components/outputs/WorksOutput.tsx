@@ -1,12 +1,12 @@
 import styles from './output.module.css'
-import { WORKS } from '@/lib/content'
+import type { WorkItem } from '@/types/terminal'
 
-export default function WorksOutput() {
+export default function WorksOutput({ works }: { works: WorkItem[] }) {
   let idx = 0
   return (
     <div className={styles.block}>
       <div className={styles.header}>Works</div>
-      {WORKS.map((work, i) => {
+      {works.map((work, i) => {
         const baseDelay = idx
         idx += 4
         return (
