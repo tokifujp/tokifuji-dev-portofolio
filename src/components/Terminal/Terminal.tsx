@@ -64,7 +64,7 @@ export default function Terminal({ bannerArt, works }: { bannerArt: string; work
             promptLabel={promptLabel}
             onCtrlC={isFormActive ? cancelForm : undefined}
           />
-          <MobileHints onCommand={handleSubmit} isFormActive={isFormActive} />
+          <MobileHints onCommand={handleSubmit} isFormActive={isFormActive} onCancel={cancelForm} />
         </>
       )}
     </div>
