@@ -19,7 +19,11 @@ interface Props {
 
 function OutputBlock({ entry, contactForm, bannerArt }: { entry: HistoryEntry; contactForm: ContactFormState | null; bannerArt: string }) {
   if (entry.kind === 'banner') {
-    return <pre className={styles.banner}>{bannerArt}</pre>
+    return (
+      <div className={styles.bannerWrapper}>
+        <pre className={styles.banner}>{bannerArt}</pre>
+      </div>
+    )
   }
   if (entry.kind === 'echo') {
     return <div className={styles.echo}>{entry.text}</div>

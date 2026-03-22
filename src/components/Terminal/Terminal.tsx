@@ -62,7 +62,7 @@ export default function Terminal({ bannerArt }: { bannerArt: string }) {
             focusTrigger={focusTrigger}
             promptLabel={promptLabel}
           />
-          <MobileHints onCommand={handleSubmit} />
+          <MobileHints onCommand={handleSubmit} isFormActive={isFormActive} />
         </>
       )}
     </div>
