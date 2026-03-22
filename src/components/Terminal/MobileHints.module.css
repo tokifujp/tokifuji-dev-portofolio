@@ -25,6 +25,17 @@
   border-color: var(--accent);
 }
 
+.chipCancel {
+  color: var(--error);
+  border-color: var(--error);
+}
+
+.chipCancel:active {
+  background: var(--error);
+  color: var(--bg);
+  border-color: var(--error);
+}
+
 /* Show only on touch/mobile */
 @media (hover: none) and (pointer: coarse) {
   .hints {

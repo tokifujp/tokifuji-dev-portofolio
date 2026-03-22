@@ -6,10 +6,23 @@ import { COMMANDS } from '@/lib/commands'
 interface Props {
   onCommand: (cmd: string) => void
   isFormActive: boolean
+  onCancel?: () => void
 }
 
-export default function MobileHints({ onCommand, isFormActive }: Props) {
-  if (isFormActive) return null
+export default function MobileHints({ onCommand, isFormActive, onCancel }: Props) {
+  if (isFormActive) {
+    return (
+      <div className={styles.hints}>
+        <button
+          className={`${styles.chip} ${styles.chipCancel}`}
+          onClick={e => { e.stopPropagation(); onCancel?.() }}
+        >
+          キャンセル
+        </button>
+      </div>
+    )
+  }
+
   const displayCommands = COMMANDS.filter(c => c.command !== '/clear')
 
   return (
