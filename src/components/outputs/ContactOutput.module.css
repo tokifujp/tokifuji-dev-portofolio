@@ -63,6 +63,13 @@
   color: var(--text-dim);
 }
 
+.cancelHint {
+  font-size: 11px;
+  opacity: 0.55;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
 .cancelled {
   color: var(--warn);
   margin-top: 4px;

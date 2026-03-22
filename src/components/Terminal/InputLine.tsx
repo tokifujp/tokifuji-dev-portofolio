@@ -13,12 +13,14 @@ interface Props {
   focusTrigger: number
   /** Form mode: replaces $ prompt with e.g. "Elon Musk >" */
   promptLabel?: string
+  /** Called when Ctrl+C is pressed during form input */
+  onCtrlC?: () => void
 }
 
 export default function InputLine({
   value, onChange, onSubmit,
   onHistoryUp, onHistoryDown,
-  focusTrigger, promptLabel,
+  focusTrigger, promptLabel, onCtrlC,
 }: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
   const suggestion = !promptLabel ? getSuggestion(value) : null
@@ -28,6 +30,11 @@ export default function InputLine({
   }, [focusTrigger])
 
   function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
+    if (e.ctrlKey && e.key === 'c') {
+      e.preventDefault()
+      onCtrlC?.()
+      return
+    }
     if (e.key === 'Enter') {
       e.preventDefault()
       onSubmit(value)
