@@ -141,6 +141,7 @@ export function useTerminal() {
   const bootComplete  = useCallback(() => dispatch({ type: 'BOOT_COMPLETE' }), [])
   const clearHistory  = useCallback(() => dispatch({ type: 'CLEAR' }), [])
   const setInputValue = useCallback((value: string) => dispatch({ type: 'SET_INPUT', value }), [])
+  const cancelForm    = useCallback(() => dispatch({ type: 'FORM_STATUS', step: 'cancelled' }), [])
 
   const submitCommand = useCallback((raw: string) => {
     dispatch({ type: 'SUBMIT_COMMAND', raw })
@@ -193,6 +194,7 @@ export function useTerminal() {
     bootComplete,
     submitCommand,
     submitFormAnswer,
+    cancelForm,
     clearHistory,
     setInputValue,
   }

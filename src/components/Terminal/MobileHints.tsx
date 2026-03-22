@@ -5,9 +5,11 @@ import { COMMANDS } from '@/lib/commands'
 
 interface Props {
   onCommand: (cmd: string) => void
+  isFormActive: boolean
 }
 
-export default function MobileHints({ onCommand }: Props) {
+export default function MobileHints({ onCommand, isFormActive }: Props) {
+  if (isFormActive) return null
   const displayCommands = COMMANDS.filter(c => c.command !== '/clear')
 
   return (

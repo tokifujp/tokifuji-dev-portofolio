@@ -22,6 +22,7 @@ export default function ContactOutput({ form }: Props) {
   return (
     <div className={styles.block}>
       <div className={styles.header}>Contact</div>
+      <div className={contactStyles.cancelHint}>Ctrl+C でいつでもキャンセルできます</div>
 
       {STEPS.map((stepDef, i) => {
         const isAnswered = i < currentStepIndex

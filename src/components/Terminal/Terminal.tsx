@@ -19,7 +19,7 @@ const FORM_PROMPTS: Record<string, string> = {
 export default function Terminal({ bannerArt, works }: { bannerArt: string; works: WorkItem[] }) {
   const {
     history, inputValue, isBooting, contactForm, isFormActive,
-    bootComplete, submitCommand, submitFormAnswer, setInputValue,
+    bootComplete, submitCommand, submitFormAnswer, cancelForm, setInputValue,
   } = useTerminal()
   const cmdHistory = useCommandHistory()
   const [focusTrigger, setFocusTrigger] = useState(0)
@@ -62,8 +62,9 @@ export default function Terminal({ bannerArt, works }: { bannerArt: string; work
             onHistoryDown={handleHistoryDown}
             focusTrigger={focusTrigger}
             promptLabel={promptLabel}
+            onCtrlC={isFormActive ? cancelForm : undefined}
           />
-          <MobileHints onCommand={handleSubmit} />
+          <MobileHints onCommand={handleSubmit} isFormActive={isFormActive} />
         </>
       )}
     </div>

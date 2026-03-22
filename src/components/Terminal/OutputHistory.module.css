@@ -32,15 +32,20 @@
   color: var(--text-sub);
 }
 
+.bannerWrapper {
+  overflow: hidden;
+  max-width: 100%;
+  margin: 4px 0 8px;
+}
+
 .banner {
   font-family: var(--font-mono);
-  font-size: 7px;
+  font-size: min(7px, calc((100vw - 32px) / 62));
   line-height: 1.2;
   color: var(--accent);
   white-space: pre;
-  overflow-x: auto;
-  margin: 4px 0 8px;
   opacity: 0.7;
+  display: inline-block;
 }
 
 .sentinel {
