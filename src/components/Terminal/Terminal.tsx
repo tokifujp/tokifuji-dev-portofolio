@@ -8,6 +8,7 @@ import BootSequence from './BootSequence'
 import OutputHistory from './OutputHistory'
 import InputLine from './InputLine'
 import MobileHints from './MobileHints'
+import type { WorkItem } from '@/types/terminal'
 
 const FORM_PROMPTS: Record<string, string> = {
   name:    'Elon Musk',
@@ -15,7 +16,7 @@ const FORM_PROMPTS: Record<string, string> = {
   message: 'ウェブサイト制作の依頼をしたい...',
 }
 
-export default function Terminal({ bannerArt }: { bannerArt: string }) {
+export default function Terminal({ bannerArt, works }: { bannerArt: string; works: WorkItem[] }) {
   const {
     history, inputValue, isBooting, contactForm, isFormActive,
     bootComplete, submitCommand, submitFormAnswer, setInputValue,
@@ -51,7 +52,7 @@ export default function Terminal({ bannerArt }: { bannerArt: string }) {
         <BootSequence onComplete={bootComplete} />
       ) : (
         <>
-          <OutputHistory history={history} contactForm={contactForm} bannerArt={bannerArt} />
+          <OutputHistory history={history} contactForm={contactForm} bannerArt={bannerArt} works={works} />
           <div className={styles.divider} />
           <InputLine
             value={inputValue}

@@ -10,6 +10,7 @@ CUI（ターミナル）風UIで、来訪者がコマンドを入力してコン
 - **インタラクティブ問い合わせフォーム** — `/contact` でコンソール対話形式の入力
 - **Discord 通知** — フォーム送信を Discord Webhook で受信
 - **ASCII アートバナー** — 起動時・`/clear` 時に表示（`public/banner.txt` から読み込み）
+- **GitHub ピン留めリポジトリ自動取得** — `/works` に GraphQL API 経由で反映（1 時間 ISR キャッシュ）
 
 ---
 
@@ -72,7 +73,8 @@ portfolio/
 │   │   └── useCommandHistory.ts
 │   ├── lib/
 │   │   ├── commands.ts      # コマンド登録・エイリアス解決
-│   │   └── content.ts       # ポートフォリオコンテンツデータ
+│   │   ├── content.ts       # ポートフォリオコンテンツデータ（/works フォールバック含む）
+│   │   └── github.ts        # GitHub GraphQL API (pinnedItems) フェッチ
 │   └── types/
 │       └── terminal.ts
 ```
@@ -115,6 +117,12 @@ cp .env.example .env
 |---|---|---|
 | `DISCORD_WEBHOOK_URL` | ✅ | Discord チャンネルの Webhook URL |
 | `GOOGLE_ADSENSE_ACCOUNT` | — | AdSense アカウント ID（未設定時はメタタグ非出力）|
+| `GITHUB_TOKEN` | — | GitHub Personal Access Token（Classic・スコープ不要）<br>未設定時は `content.ts` の静的データにフォールバック |
+
+### GitHub Token の作成
+
+GitHub → Settings → Developer settings → Personal access tokens → **Tokens (classic)**
+スコープは何も選択せず Generate → `GITHUB_TOKEN` に貼り付け
 
 ---
 
