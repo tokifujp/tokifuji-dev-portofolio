@@ -154,7 +154,8 @@ export function useTerminal() {
     const { step, name, email } = state.contactForm
 
     // Basic email validation
-    if (step === 'email' && !trimmed.includes('@')) {
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (step === 'email' && !EMAIL_RE.test(trimmed)) {
       dispatch({ type: 'FORM_STATUS', step: 'email', error: 'Invalid email address.' })
       return
     }
