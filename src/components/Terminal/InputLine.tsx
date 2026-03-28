@@ -68,6 +68,8 @@ export default function InputLine({
         )}
         <input
           ref={inputRef}
+          id="terminal-input"
+          name="terminal-input"
           className={styles.input}
           type="text"
           value={value}
