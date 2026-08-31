@@ -3,6 +3,7 @@ export type KnownCommand =
   | '/about'
   | '/services'
   | '/works'
+  | '/blog'
   | '/contact'
   | '/terms'
   | '/privacy'
@@ -52,4 +53,11 @@ export interface ServiceItem {
   name: string
   description: string
   price?: string
+}
+
+export interface BlogPost {
+  title: string
+  url: string
+  excerpt: string
+  publishedAt: string
 }

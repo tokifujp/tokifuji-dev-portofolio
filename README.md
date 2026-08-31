@@ -11,6 +11,7 @@ CUI（ターミナル）風UIで、来訪者がコマンドを入力してコン
 - **Discord 通知** — フォーム送信を Discord Webhook で受信
 - **ASCII アートバナー** — 起動時・`/clear` 時に表示（`public/banner.txt` から読み込み）
 - **GitHub ピン留めリポジトリ自動取得** — `/works` に GraphQL API 経由で反映（1 時間 ISR キャッシュ）
+- **ブログ記事自動取得** — `blog` ラベル付き closed Issue を `/blog` に REST API 経由で反映（1 時間 ISR キャッシュ）
 
 ---
 
@@ -22,6 +23,7 @@ CUI（ターミナル）風UIで、来訪者がコマンドを入力してコン
 | `/about` | 自己紹介・プロフィール | `about`, `who`, `whoami` |
 | `/services` | 提供サービス一覧 | `services`, `svc`, `service` |
 | `/works` | 制作実績・ポートフォリオ | `works`, `portfolio`, `work` |
+| `/blog` | ブログ記事一覧（closed + `blog` ラベルの Issue） | `blog`, `posts`, `articles` |
 | `/contact` | お問い合わせフォーム | `contact`, `email` |
 | `/terms` | 利用規約 | `terms`, `tos` |
 | `/privacy` | プライバシーポリシー | `privacy`, `pp` |
@@ -64,6 +66,7 @@ portfolio/
 │   │       ├── AboutOutput.tsx
 │   │       ├── ServicesOutput.tsx
 │   │       ├── WorksOutput.tsx
+│   │       ├── BlogOutput.tsx
 │   │       ├── ContactOutput.tsx
 │   │       ├── TermsOutput.tsx
 │   │       └── PrivacyOutput.tsx
@@ -73,8 +76,8 @@ portfolio/
 │   │   └── useCommandHistory.ts
 │   ├── lib/
 │   │   ├── commands.ts      # コマンド登録・エイリアス解決
-│   │   ├── content.ts       # ポートフォリオコンテンツデータ（/works フォールバック含む）
-│   │   └── github.ts        # GitHub GraphQL API (pinnedItems) フェッチ
+│   │   ├── content.ts       # ポートフォリオコンテンツデータ（/works, /blog フォールバック含む）
+│   │   └── github.ts        # GitHub GraphQL (pinnedItems) / REST (issues) フェッチ
 │   └── types/
 │       └── terminal.ts
 ```

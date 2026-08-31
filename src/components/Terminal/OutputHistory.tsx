@@ -1,12 +1,13 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import type { HistoryEntry, ContactFormState, WorkItem } from '@/types/terminal'
+import type { HistoryEntry, ContactFormState, WorkItem, BlogPost } from '@/types/terminal'
 import styles from './OutputHistory.module.css'
 import HelpOutput from '@/components/outputs/HelpOutput'
 import AboutOutput from '@/components/outputs/AboutOutput'
 import ServicesOutput from '@/components/outputs/ServicesOutput'
 import WorksOutput from '@/components/outputs/WorksOutput'
+import BlogOutput from '@/components/outputs/BlogOutput'
 import ContactOutput from '@/components/outputs/ContactOutput'
 import TermsOutput from '@/components/outputs/TermsOutput'
 import PrivacyOutput from '@/components/outputs/PrivacyOutput'
@@ -16,9 +17,10 @@ interface Props {
   contactForm: ContactFormState | null
   bannerArt: string
   works: WorkItem[]
+  posts: BlogPost[]
 }
 
-function OutputBlock({ entry, contactForm, bannerArt, works }: { entry: HistoryEntry; contactForm: ContactFormState | null; bannerArt: string; works: WorkItem[] }) {
+function OutputBlock({ entry, contactForm, bannerArt, works, posts }: { entry: HistoryEntry; contactForm: ContactFormState | null; bannerArt: string; works: WorkItem[]; posts: BlogPost[] }) {
   if (entry.kind === 'banner') {
     return (
       <div className={styles.bannerWrapper}>
@@ -51,6 +53,7 @@ function OutputBlock({ entry, contactForm, bannerArt, works }: { entry: HistoryE
       case '/about':    return <AboutOutput />
       case '/services': return <ServicesOutput />
       case '/works':    return <WorksOutput works={works} />
+      case '/blog':     return <BlogOutput posts={posts} />
       case '/contact':  return null  // handled by contact-form entry
       case '/terms':    return <TermsOutput />
       case '/privacy':  return <PrivacyOutput />
@@ -60,7 +63,7 @@ function OutputBlock({ entry, contactForm, bannerArt, works }: { entry: HistoryE
   return null
 }
 
-export default function OutputHistory({ history, contactForm, bannerArt, works }: Props) {
+export default function OutputHistory({ history, contactForm, bannerArt, works, posts }: Props) {
   const sentinelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -71,7 +74,7 @@ export default function OutputHistory({ history, contactForm, bannerArt, works }
     <div className={styles.history}>
       {history.map(entry => (
         <div key={entry.id} className={styles.entry}>
-          <OutputBlock entry={entry} contactForm={contactForm} bannerArt={bannerArt} works={works} />
+          <OutputBlock entry={entry} contactForm={contactForm} bannerArt={bannerArt} works={works} posts={posts} />
         </div>
       ))}
       <div ref={sentinelRef} className={styles.sentinel} />

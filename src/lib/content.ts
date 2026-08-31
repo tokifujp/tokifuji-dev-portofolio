@@ -1,4 +1,4 @@
-import type { ServiceItem, WorkItem } from '@/types/terminal'
+import type { BlogPost, ServiceItem, WorkItem } from '@/types/terminal'
 
 export const PROFILE = {
   name: 'Motoki Tokifuji',
@@ -52,6 +52,15 @@ export const WORKS: WorkItem[] = [
     description: '開発ツールのレジストリサイト。',
     tags: ['Next.js', 'TypeScript'],
     year: 2024,
+  },
+]
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    title: 'Good bye Omarchy with love. Hello Ryoku.',
+    url: 'https://github.com/tokifujp/tokifuji-dev-portofolio/issues/7',
+    excerpt: '1年ほど使っていたOmarchy環境からRyokuへ移行した話。Secure BootやVRAM枯渇のハマりどころ、使い心地までまとめた乗り換えレビュー。',
+    publishedAt: '2026-08-31',
   },
 ]
 

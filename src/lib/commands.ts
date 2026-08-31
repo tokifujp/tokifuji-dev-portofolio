@@ -5,6 +5,7 @@ export const COMMANDS: CommandDefinition[] = [
   { command: '/about',    description: '自己紹介・プロフィール',       aliases: ['about', 'who', 'whoami'] },
   { command: '/services', description: '提供サービス一覧',             aliases: ['services', 'svc', 'service'] },
   { command: '/works',    description: '制作実績・ポートフォリオ',     aliases: ['works', 'portfolio', 'work'] },
+  { command: '/blog',     description: 'ブログ記事一覧',               aliases: ['blog', 'posts', 'articles'] },
   { command: '/contact',  description: 'お問い合わせ・連絡先',         aliases: ['contact', 'email'] },
   { command: '/terms',    description: '利用規約',                      aliases: ['terms', 'tos'] },
   { command: '/privacy',  description: 'プライバシーポリシー',          aliases: ['privacy', 'pp'] },
